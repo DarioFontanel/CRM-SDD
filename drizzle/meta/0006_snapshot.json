@@ -1,0 +1,757 @@
+{
+  "version": "6",
+  "dialect": "sqlite",
+  "id": "92df8746-a04b-43df-a3da-d74f8aa66398",
+  "prevId": "43385b68-21af-4527-aa2b-bb6af54851df",
+  "tables": {
+    "cambi_di_prenotazione": {
+      "name": "cambi_di_prenotazione",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "contatto_id": {
+          "name": "contatto_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "prenotazione_id": {
+          "name": "prenotazione_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "tipo": {
+          "name": "tipo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "quando": {
+          "name": "quando",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "da": {
+          "name": "da",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "a": {
+          "name": "a",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "motivo": {
+          "name": "motivo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "cambi_di_prenotazione_contatto": {
+          "name": "cambi_di_prenotazione_contatto",
+          "columns": [
+            "contatto_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "cambi_di_prenotazione_contatto_id_contatti_id_fk": {
+          "name": "cambi_di_prenotazione_contatto_id_contatti_id_fk",
+          "tableFrom": "cambi_di_prenotazione",
+          "tableTo": "contatti",
+          "columnsFrom": [
+            "contatto_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "cambi_di_prenotazione_prenotazione_id_prenotazioni_id_fk": {
+          "name": "cambi_di_prenotazione_prenotazione_id_prenotazioni_id_fk",
+          "tableFrom": "cambi_di_prenotazione",
+          "tableTo": "prenotazioni",
+          "columnsFrom": [
+            "prenotazione_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "cambi_di_stato": {
+      "name": "cambi_di_stato",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "contatto_id": {
+          "name": "contatto_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "da": {
+          "name": "da",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "a": {
+          "name": "a",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "quando": {
+          "name": "quando",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "cambi_di_stato_contatto": {
+          "name": "cambi_di_stato_contatto",
+          "columns": [
+            "contatto_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "cambi_di_stato_contatto_id_contatti_id_fk": {
+          "name": "cambi_di_stato_contatto_id_contatti_id_fk",
+          "tableFrom": "cambi_di_stato",
+          "tableTo": "contatti",
+          "columnsFrom": [
+            "contatto_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "contatti": {
+      "name": "contatti",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "email_chiave": {
+          "name": "email_chiave",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "nome": {
+          "name": "nome",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "telefono": {
+          "name": "telefono",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "azienda": {
+          "name": "azienda",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "stato": {
+          "name": "stato",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "'Nuovo'"
+        },
+        "creato_il": {
+          "name": "creato_il",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "contatti_email_chiave": {
+          "name": "contatti_email_chiave",
+          "columns": [
+            "email_chiave"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "invii": {
+      "name": "invii",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "contatto_id": {
+          "name": "contatto_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "chiave": {
+          "name": "chiave",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "punto_di_ingresso": {
+          "name": "punto_di_ingresso",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "ricevuto_il": {
+          "name": "ricevuto_il",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "nome": {
+          "name": "nome",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "telefono": {
+          "name": "telefono",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "azienda": {
+          "name": "azienda",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "messaggio": {
+          "name": "messaggio",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "risorsa": {
+          "name": "risorsa",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "come_mi_hai_conosciuto": {
+          "name": "come_mi_hai_conosciuto",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "pagina": {
+          "name": "pagina",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "privacy_versione": {
+          "name": "privacy_versione",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "visto": {
+          "name": "visto",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": false
+        }
+      },
+      "indexes": {
+        "invii_chiave": {
+          "name": "invii_chiave",
+          "columns": [
+            "chiave"
+          ],
+          "isUnique": true
+        },
+        "invii_contatto": {
+          "name": "invii_contatto",
+          "columns": [
+            "contatto_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "invii_contatto_id_contatti_id_fk": {
+          "name": "invii_contatto_id_contatti_id_fk",
+          "tableFrom": "invii",
+          "tableTo": "contatti",
+          "columnsFrom": [
+            "contatto_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "note": {
+      "name": "note",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "contatto_id": {
+          "name": "contatto_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "testo": {
+          "name": "testo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "quando": {
+          "name": "quando",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "note_contatto": {
+          "name": "note_contatto",
+          "columns": [
+            "contatto_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "note_contatto_id_contatti_id_fk": {
+          "name": "note_contatto_id_contatti_id_fk",
+          "tableFrom": "note",
+          "tableTo": "contatti",
+          "columnsFrom": [
+            "contatto_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "prenotazioni": {
+      "name": "prenotazioni",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "contatto_id": {
+          "name": "contatto_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "invio_id": {
+          "name": "invio_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "inizio": {
+          "name": "inizio",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "inizio_iniziale": {
+          "name": "inizio_iniziale",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "prenotata_il": {
+          "name": "prenotata_il",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "stato": {
+          "name": "stato",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "'confermata'"
+        },
+        "motivo_annullamento": {
+          "name": "motivo_annullamento",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "uid_corrente": {
+          "name": "uid_corrente",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "prenotazioni_contatto": {
+          "name": "prenotazioni_contatto",
+          "columns": [
+            "contatto_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "prenotazioni_contatto_id_contatti_id_fk": {
+          "name": "prenotazioni_contatto_id_contatti_id_fk",
+          "tableFrom": "prenotazioni",
+          "tableTo": "contatti",
+          "columnsFrom": [
+            "contatto_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "prenotazioni_invio_id_invii_id_fk": {
+          "name": "prenotazioni_invio_id_invii_id_fk",
+          "tableFrom": "prenotazioni",
+          "tableTo": "invii",
+          "columnsFrom": [
+            "invio_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "promemoria": {
+      "name": "promemoria",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "contatto_id": {
+          "name": "contatto_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "testo": {
+          "name": "testo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "giorno": {
+          "name": "giorno",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "fatto_il": {
+          "name": "fatto_il",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "promemoria_contatto": {
+          "name": "promemoria_contatto",
+          "columns": [
+            "contatto_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "promemoria_contatto_id_contatti_id_fk": {
+          "name": "promemoria_contatto_id_contatti_id_fk",
+          "tableFrom": "promemoria",
+          "tableTo": "contatti",
+          "columnsFrom": [
+            "contatto_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "scarichi": {
+      "name": "scarichi",
+      "columns": {
+        "canale": {
+          "name": "canale",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "ultimo_riuscito": {
+          "name": "ultimo_riuscito",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "scartati": {
+      "name": "scartati",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "riga_id": {
+          "name": "riga_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "riga": {
+          "name": "riga",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "quando": {
+          "name": "quando",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "motivo": {
+          "name": "motivo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "scartati_riga_id": {
+          "name": "scartati_riga_id",
+          "columns": [
+            "riga_id"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "uid_di_prenotazione": {
+      "name": "uid_di_prenotazione",
+      "columns": {
+        "uid": {
+          "name": "uid",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "prenotazione_id": {
+          "name": "prenotazione_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "uid_di_prenotazione_prenotazione_id_prenotazioni_id_fk": {
+          "name": "uid_di_prenotazione_prenotazione_id_prenotazioni_id_fk",
+          "tableFrom": "uid_di_prenotazione",
+          "tableTo": "prenotazioni",
+          "columnsFrom": [
+            "prenotazione_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    }
+  },
+  "views": {},
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "indexes": {}
+  }
+}

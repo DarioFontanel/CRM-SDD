@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f3f2ee">
+  <title>CRM · I flussi di lavoro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Carta, inchiostro e verde bottiglia: gli stessi di src/ui/stile.css */
+    :root {
+      --carattere: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      --fondo: #f4f2ee;
+      --fondo-elenco: #faf9f6;
+      --riga: #e1e0da;
+      --inchiostro: #1a201b;
+      --inchiostro-2: #494f4a;
+      --tenue: #626863;
+      --verde: #195e3f;
+      --su-verde: #f4fdf7;
+    }
+
+    body { font: 400 0.875rem/1.45 var(--carattere); color: var(--inchiostro); background: var(--fondo); -webkit-font-smoothing: antialiased; padding: 40px 24px 56px; }
+    .pagina { max-width: 1168px; margin: 0 auto; }
+
+    .marchio { display: flex; align-items: center; gap: 10px; font-size: 0.9375rem; font-weight: 600; letter-spacing: -0.01em; }
+    .marchio svg { width: 26px; height: 26px; }
+    h1 { margin-top: 28px; font-size: 1.75rem; line-height: 1.2; font-weight: 600; letter-spacing: -0.02em; }
+    .sottotitolo { margin-top: 8px; max-width: 64ch; color: var(--inchiostro-2); font-size: 0.9375rem; line-height: 1.5; }
+
+    .figura { margin-top: 28px; border: 1px solid var(--riga); border-radius: 12px; background: var(--fondo-elenco); overflow: hidden; }
+    .figura-testa { display: flex; align-items: flex-start; gap: 12px; padding: 20px 24px 4px; }
+    .numero { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--verde); color: var(--su-verde); font-size: 0.75rem; font-weight: 600; font-variant-numeric: tabular-nums; flex: none; }
+    h2 { font-size: 1.0625rem; line-height: 24px; font-weight: 600; letter-spacing: -0.01em; }
+    .figura-testa p { margin-top: 2px; color: var(--inchiostro-2); max-width: 78ch; }
+
+    .diagram-container { width: 100%; overflow-x: auto; }
+    .diagram-container svg { width: 100%; min-width: 1120px; display: block; }
+    @media print {
+      .diagram-container { overflow-x: visible; }
+      .diagram-container svg { min-width: 0; }
+    }
+
+    .didascalia { padding: 14px 24px 18px; border-top: 1px solid var(--riga); color: var(--tenue); font-size: 0.8125rem; max-width: none; }
+
+    .piede { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-top: 24px; color: var(--tenue); font-size: 0.75rem; }
+  </style>
+</head>
+<body>
+  <div class="pagina">
+    <header>
+      <div class="marchio">
+        <svg viewBox="0 0 26 26" aria-hidden="true"><rect width="26" height="26" rx="7" fill="#1f5a44"/><path d="M16.9 9.4a5.3 5.3 0 1 0 0 7.2" fill="none" stroke="#f4faf6" stroke-width="2.4" stroke-linecap="round"/></svg>
+        CRM
+      </div>
+      <h1>I flussi di lavoro</h1>
+      <p class="sottotitolo">Tre percorsi, uno dopo l'altro: come una persona arriva dal sito, cosa fa l'utente ogni giorno quando apre il CRM, e come un Contatto si muove nella pipeline.</p>
+    </header>
+
+    <section class="figura">
+      <div class="figura-testa">
+        <span class="numero">1</span>
+        <div>
+          <h2>L'arrivo</h2>
+          <p>Dal sito al Contatto. Il sito lascia gli arrivi online; il CRM li ritira quando è acceso e li lega alla persona giusta.</p>
+        </div>
+      </div>
+      <div class="diagram-container">
+<svg viewBox="0 0 1120 416" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="flussi-arrivo-title flussi-arrivo-desc">
+<title id="flussi-arrivo-title">L'arrivo: dal sito al Contatto</title>
+<desc id="flussi-arrivo-desc">I tre punti di ingresso del sito lasciano gli arrivi nel ponte e su Cal.com; lo scarico del CRM li trasforma in Invii di un Contatto, oppure in Scartati che si possono recuperare.</desc>
+<defs>
+<marker id="flussi-arrivo-punta" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#7c827d"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#faf9f6"/>
+<text x="24" y="44" fill="#626863" font-size="11" font-weight="500" font-family="'Geist', -apple-system, system-ui, sans-serif">Sul sito</text>
+<text x="256" y="44" fill="#626863" font-size="11" font-weight="500" font-family="'Geist', -apple-system, system-ui, sans-serif">Online, in attesa</text>
+<text x="448" y="44" fill="#626863" font-size="11" font-weight="500" font-family="'Geist', -apple-system, system-ui, sans-serif">Nel CRM, sul Mac</text>
+<line x1="236" y1="28" x2="236" y2="392" stroke="#e1e0da" stroke-width="1"/>
+<line x1="428" y1="28" x2="428" y2="392" stroke="#e1e0da" stroke-width="1"/>
+<path d="M 216 144 L 256 144" fill="none" stroke="#7c827d" stroke-width="1.25" marker-end="url(#flussi-arrivo-punta)"/>
+<path d="M 216 256 L 256 256" fill="none" stroke="#7c827d" stroke-width="1.25" marker-end="url(#flussi-arrivo-punta)"/>
+<path d="M 408 144 L 448 144" fill="none" stroke="#7c827d" stroke-width="1.25" marker-end="url(#flussi-arrivo-punta)"/>
+<path d="M 408 256 L 448 256" fill="none" stroke="#7c827d" stroke-width="1.25" marker-end="url(#flussi-arrivo-punta)"/>
+<path d="M 608 192 L 664 192" fill="none" stroke="#7c827d" stroke-width="1.25" marker-end="url(#flussi-arrivo-punta)"/>
+<rect data-maschera x="614" y="170" width="44" height="14" rx="3" fill="#faf9f6"/><text x="636" y="180" fill="#626863" font-size="10.5" font-weight="500" font-family="'Geist', -apple-system, system-ui, sans-serif" text-anchor="middle">valido</text>
+<path d="M 528 284 L 528 348 Q 528 356 536 356 L 664 356" fill="none" stroke="#7c827d" stroke-width="1.25" marker-end="url(#flussi-arrivo-punta)"/>
+<rect data-maschera x="570" y="334" width="60" height="14" rx="3" fill="#faf9f6"/><text x="600" y="344" fill="#626863" font-size="10.5" font-weight="500" font-family="'Geist', -apple-system, system-ui, sans-serif" text-anchor="middle">sospetto</text>
+<path d="M 800 320 L 800 228" fill="none" stroke="#7c827d" stroke-width="1.25" stroke-dasharray="5,4" marker-end="url(#flussi-arrivo-punta)"/>
+<rect data-maschera x="806" y="268" width="60" height="14" rx="3" fill="#faf9f6"/><text x="810" y="278" fill="#626863" font-size="10.5" font-weight="500" font-family="'Geist', -apple-system, system-ui, sans-serif">Recupera</text>
+<path d="M 864 192 L 904 192" fill="none" stroke="#7c827d" stroke-width="1.25" marker-end="url(#flussi-arrivo-punta)"/>
+<path d="M 1000 328 L 1000 236" fill="none" stroke="#7c827d" stroke-width="1.25" marker-end="url(#flussi-arrivo-punta)"/>
+<g data-nodo="form">
+<rect x="24" y="100" width="192" height="88" rx="8" fill="#faf9f6"/>
+<rect x="24" y="100" width="192" height="88" rx="8" fill="#f4f2ee" stroke="#ceccc6" stroke-width="1"/>
+<line x1="24" y1="144" x2="216" y2="144" stroke="#ceccc6" stroke-width="1"/>
+<g transform="translate(36 114) scale(0.6666666666666666)" fill="none" stroke="#626863" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/></g>
+<text x="60" y="126.5" fill="#1a201b" font-size="13" font-weight="600" font-family="'Geist', -apple-system, system-ui, sans-serif">Form di contatto</text>
+<g transform="translate(36 158) scale(0.6666666666666666)" fill="none" stroke="#626863" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></g>
+<text x="60" y="170.5" fill="#1a201b" font-size="13" font-weight="600" font-family="'Geist', -apple-system, system-ui, sans-serif">Lead magnet</text>
+</g>
+<g data-nodo="call">
+<rect x="24" y="228" width="192" height="56" rx="8" fill="#faf9f6"/>
+<rect x="24" y="228" width="192" height="56" rx="8" fill="#f4f2ee" stroke="#ceccc6" stroke-width="1"/>
+<g transform="translate(36 240) scale(0.6666666666666666)" fill="none" stroke="#626863" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="m9 15 2 2 4-4"/></g>
+<text x="60" y="252.5" fill="#1a201b" font-size="13" font-weight="600" font-family="'Geist', -apple-system, system-ui, sans-serif">Prenotazione call</text>
+<text x="36" y="271" fill="#494f4a" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">fissata dal visitatore</text>
+</g>
+<g data-nodo="ponte">
+<rect x="256" y="116" width="152" height="56" rx="8" fill="#faf9f6"/>
+<rect x="256" y="116" width="152" height="56" rx="8" fill="#f4f2ee" stroke="#ceccc6" stroke-width="1"/>
+<g transform="translate(268 128) scale(0.6666666666666666)" fill="none" stroke="#626863" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></g>
+<text x="292" y="140.5" fill="#1a201b" font-size="13" font-weight="600" font-family="'Geist', -apple-system, system-ui, sans-serif">Ponte</text>
+<text x="268" y="159" fill="#494f4a" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">deposito online</text>
+</g>
+<g data-nodo="cal">
+<rect x="256" y="228" width="152" height="56" rx="8" fill="#faf9f6"/>
+<rect x="256" y="228" width="152" height="56" rx="8" fill="#f4f2ee" stroke="#ceccc6" stroke-width="1"/>
+<g transform="translate(268 240) scale(0.6666666666666666)" fill="none" stroke="#626863" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></g>
+<text x="292" y="252.5" fill="#1a201b" font-size="13" font-weight="600" font-family="'Geist', -apple-system, system-ui, sans-serif">Cal.com</text>
+<text x="268" y="271" fill="#494f4a" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">agenda delle call</text>
+</g>
+<g data-nodo="scarico">
+<rect x="448" y="100" width="160" height="184" rx="8" fill="#faf9f6"/>
+<rect x="448" y="100" width="160" height="184" rx="8" fill="#fefefc" stroke="#ceccc6" stroke-width="1"/>
+<g transform="translate(460 112) scale(0.6666666666666666)" fill="none" stroke="#626863" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></g>
+<text x="484" y="124.5" fill="#1a201b" font-size="13" font-weight="600" font-family="'Geist', -apple-system, system-ui, sans-serif">Scarico</text>
+<text x="460" y="143" fill="#494f4a" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">il CRM ritira gli arrivi</text>
+<line x1="460" y1="160" x2="596" y2="160" stroke="#e1e0da" stroke-width="1"/>
+<text x="460" y="182" fill="#626863" font-size="10.5" font-weight="500" font-family="'Geist', -apple-system, system-ui, sans-serif">Quando</text>
+<circle cx="463" cy="199" r="1.75" fill="#626863"/><text x="472" y="203" fill="#494f4a" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">all'avvio</text>
+<circle cx="463" cy="217" r="1.75" fill="#626863"/><text x="472" y="221" fill="#494f4a" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">ogni 5 minuti</text>
+<circle cx="463" cy="235" r="1.75" fill="#626863"/><text x="472" y="239" fill="#494f4a" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">con «Scarica ora»</text>
+</g>
+<g data-nodo="invio">
+<rect x="664" y="156" width="200" height="72" rx="8" fill="#faf9f6"/>
+<rect x="664" y="156" width="200" height="72" rx="8" fill="#fefefc" stroke="#ceccc6" stroke-width="1"/>
+<g transform="translate(676 168) scale(0.6666666666666666)" fill="none" stroke="#626863" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></g>
+<text x="700" y="180.5" fill="#1a201b" font-size="13" font-weight="600" font-family="'Geist', -apple-system, system-ui, sans-serif">Invio</text>
+<text x="676" y="199" fill="#494f4a" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">conservato com'è arrivato</text>
+<text x="676" y="213" fill="#494f4a" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">+ Prenotazione, se è una call</text>
+</g>
+<g data-nodo="contatto">
+<rect x="904" y="148" width="192" height="88" rx="8" fill="#faf9f6"/>
+<rect x="904" y="148" width="192" height="88" rx="8" fill="#dbf2e4" stroke="#195e3f" stroke-width="1"/>
+<g transform="translate(916 160) scale(0.6666666666666666)" fill="none" stroke="#195e3f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></g>
+<text x="940" y="172.5" fill="#034a2e" font-size="13" font-weight="600" font-family="'Geist', -apple-system, system-ui, sans-serif">Contatto</text>
+<text x="916" y="191" fill="#034a2e" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">riconosciuto dall'email</text>
+<text x="916" y="205" fill="#034a2e" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">email nuova → Stato Nuovo</text>
+<text x="916" y="219" fill="#034a2e" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">email nota → si aggiunge</text>
+</g>
+<g data-nodo="scartato">
+<rect x="664" y="320" width="200" height="72" rx="8" fill="#faf9f6"/>
+<rect x="664" y="320" width="200" height="72" rx="8" fill="#fdefcf" stroke="#d9b46a" stroke-width="1"/>
+<g transform="translate(676 332) scale(0.6666666666666666)" fill="none" stroke="#7e4f04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></g>
+<text x="700" y="344.5" fill="#7e4f04" font-size="13" font-weight="600" font-family="'Geist', -apple-system, system-ui, sans-serif">Scartato</text>
+<text x="676" y="363" fill="#7e4f04" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">arrivo dal ponte sospetto</text>
+<text x="676" y="377" fill="#7e4f04" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">o malformato</text>
+</g>
+<g data-nodo="mano">
+<rect x="904" y="328" width="192" height="56" rx="8" fill="#faf9f6"/>
+<rect x="904" y="328" width="192" height="56" rx="8" fill="#fefefc" stroke="#ceccc6" stroke-width="1"/>
+<g transform="translate(916 340) scale(0.6666666666666666)" fill="none" stroke="#626863" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></g>
+<text x="940" y="352.5" fill="#1a201b" font-size="13" font-weight="600" font-family="'Geist', -apple-system, system-ui, sans-serif">Aggiunto a mano</text>
+<text x="916" y="371" fill="#494f4a" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">con «Nuovo contatto»</text>
+</g>
+</svg>
+      </div>
+      <p class="didascalia">A CRM spento non si perde nulla: gli arrivi aspettano nel ponte e su Cal.com fino allo scarico successivo. Uno Scartato si può recuperare oppure eliminare.</p>
+    </section>
+
+    <section class="figura">
+      <div class="figura-testa">
+        <span class="numero">2</span>
+        <div>
+          <h2>La giornata</h2>
+          <p>Da «Da fare oggi» allo Storico. Si apre il CRM, si vede chi sentire, si lavora sulla scheda.</p>
+        </div>
+      </div>
+      <div class="diagram-container">
+<svg viewBox="0 0 1120 352" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="flussi-giornata-title flussi-giornata-desc">
+<title id="flussi-giornata-title">La giornata: da Da fare oggi allo Storico</title>
+<desc id="flussi-giornata-desc">Da fare oggi elenca Promemoria scaduti, Promemoria di oggi, call di oggi e nuovi arrivi; da lì si apre la scheda del Contatto, dove si cambia lo Stato, si scrive una Nota o si gestisce un Promemoria, e tutto finisce nello Storico.</desc>
+<defs>
+<marker id="flussi-giornata-punta" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#7c827d"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#faf9f6"/>
+<path d="M 256 172 L 336 172" fill="none" stroke="#7c827d" stroke-width="1.25" marker-end="url(#flussi-giornata-punta)"/>
+<rect data-maschera x="278" y="150" width="36" height="14" rx="3" fill="#faf9f6"/><text x="296" y="160" fill="#626863" font-size="10.5" font-weight="500" font-family="'Geist', -apple-system, system-ui, sans-serif" text-anchor="middle">apre</text>
+<path d="M 544 154 L 576 154 Q 584 154 584 146 L 584 100 Q 584 92 592 92 L 624 92" fill="none" stroke="#7c827d" stroke-width="1.25" marker-end="url(#flussi-giornata-punta)"/>
+<path d="M 544 172 L 624 172" fill="none" stroke="#7c827d" stroke-width="1.25" marker-end="url(#flussi-giornata-punta)"/>
+<path d="M 544 190 L 576 190 Q 584 190 584 198 L 584 244 Q 584 252 592 252 L 624 252" fill="none" stroke="#7c827d" stroke-width="1.25" marker-end="url(#flussi-giornata-punta)"/>
+<path d="M 848 92 L 880 92 Q 888 92 888 100 L 888 142 Q 888 150 896 150 L 928 150" fill="none" stroke="#7c827d" stroke-width="1.25" marker-end="url(#flussi-giornata-punta)"/>
+<path d="M 848 172 L 928 172" fill="none" stroke="#7c827d" stroke-width="1.25" marker-end="url(#flussi-giornata-punta)"/>
+<path d="M 848 252 L 880 252 Q 888 252 888 244 L 888 202 Q 888 194 896 194 L 928 194" fill="none" stroke="#7c827d" stroke-width="1.25" marker-end="url(#flussi-giornata-punta)"/>
+<rect data-maschera x="896" y="230" width="96" height="14" rx="3" fill="#faf9f6"/><text x="900" y="240" fill="#626863" font-size="10.5" font-weight="500" font-family="'Geist', -apple-system, system-ui, sans-serif">quando è fatto</text>
+<path d="M 736 280 L 736 312 Q 736 320 728 320 L 148 320 Q 140 320 140 312 L 140 272" fill="none" stroke="#7c827d" stroke-width="1.25" stroke-dasharray="5,4" marker-end="url(#flussi-giornata-punta)"/>
+<rect data-maschera x="360" y="298" width="156" height="14" rx="3" fill="#faf9f6"/><text x="438" y="308" fill="#626863" font-size="10.5" font-weight="500" font-family="'Geist', -apple-system, system-ui, sans-serif" text-anchor="middle">ricompare nel suo giorno</text>
+<g data-nodo="oggi">
+<rect x="24" y="72" width="232" height="200" rx="8" fill="#faf9f6"/>
+<rect x="24" y="72" width="232" height="200" rx="8" fill="#fefefc" stroke="#ceccc6" stroke-width="1"/>
+<g transform="translate(36 84) scale(0.6666666666666666)" fill="none" stroke="#195e3f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 5h8"/><path d="M13 12h8"/><path d="M13 19h8"/><path d="m3 17 2 2 4-4"/><rect x="3" y="4" width="6" height="6" rx="1"/></g>
+<text x="60" y="96.5" fill="#1a201b" font-size="13" font-weight="600" font-family="'Geist', -apple-system, system-ui, sans-serif">Da fare oggi</text>
+<text x="36" y="115" fill="#494f4a" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">la cartella di apertura</text>
+<line x1="36" y1="132" x2="244" y2="132" stroke="#e1e0da" stroke-width="1"/>
+<text x="36" y="160" fill="#626863" font-size="10.5" font-weight="500" font-family="'Geist', -apple-system, system-ui, sans-serif">1</text><text x="54" y="160" fill="#be2323" font-size="12" font-weight="500" font-family="'Geist', -apple-system, system-ui, sans-serif">Promemoria scaduti</text>
+<text x="36" y="188" fill="#626863" font-size="10.5" font-weight="500" font-family="'Geist', -apple-system, system-ui, sans-serif">2</text><text x="54" y="188" fill="#494f4a" font-size="12" font-weight="500" font-family="'Geist', -apple-system, system-ui, sans-serif">Promemoria di oggi</text>
+<text x="36" y="216" fill="#626863" font-size="10.5" font-weight="500" font-family="'Geist', -apple-system, system-ui, sans-serif">3</text><text x="54" y="216" fill="#494f4a" font-size="12" font-weight="500" font-family="'Geist', -apple-system, system-ui, sans-serif">Call di oggi</text>
+<text x="36" y="244" fill="#626863" font-size="10.5" font-weight="500" font-family="'Geist', -apple-system, system-ui, sans-serif">4</text><text x="54" y="244" fill="#494f4a" font-size="12" font-weight="500" font-family="'Geist', -apple-system, system-ui, sans-serif">Nuovi arrivi</text>
+<circle cx="236" cy="240" r="4" fill="#179765"/>
+</g>
+<g data-nodo="scheda">
+<rect x="336" y="136" width="208" height="72" rx="8" fill="#faf9f6"/>
+<rect x="336" y="136" width="208" height="72" rx="8" fill="#dbf2e4" stroke="#195e3f" stroke-width="1"/>
+<g transform="translate(348 148) scale(0.6666666666666666)" fill="none" stroke="#195e3f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></g>
+<text x="372" y="160.5" fill="#034a2e" font-size="13" font-weight="600" font-family="'Geist', -apple-system, system-ui, sans-serif">Scheda del Contatto</text>
+<text x="348" y="179" fill="#034a2e" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">aprirla segna visti gli Invii</text>
+<text x="348" y="193" fill="#034a2e" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">qui si fa tutto, in un clic</text>
+</g>
+<g data-nodo="stato">
+<rect x="624" y="64" width="224" height="56" rx="8" fill="#faf9f6"/>
+<rect x="624" y="64" width="224" height="56" rx="8" fill="#fefefc" stroke="#ceccc6" stroke-width="1"/>
+<g transform="translate(636 76) scale(0.6666666666666666)" fill="none" stroke="#626863" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></g>
+<text x="660" y="88.5" fill="#1a201b" font-size="13" font-weight="600" font-family="'Geist', -apple-system, system-ui, sans-serif">Cambia lo Stato</text>
+<text x="636" y="107" fill="#494f4a" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">un clic sui cinque pulsanti</text>
+</g>
+<g data-nodo="nota">
+<rect x="624" y="144" width="224" height="56" rx="8" fill="#faf9f6"/>
+<rect x="624" y="144" width="224" height="56" rx="8" fill="#fefefc" stroke="#ceccc6" stroke-width="1"/>
+<g transform="translate(636 156) scale(0.6666666666666666)" fill="none" stroke="#626863" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4"/><path d="M2 6h4"/><path d="M2 10h4"/><path d="M2 14h4"/><path d="M2 18h4"/><path d="M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/></g>
+<text x="660" y="168.5" fill="#1a201b" font-size="13" font-weight="600" font-family="'Geist', -apple-system, system-ui, sans-serif">Scrive una Nota</text>
+<text x="636" y="187" fill="#494f4a" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">testo libero, con data e ora</text>
+</g>
+<g data-nodo="promemoria">
+<rect x="624" y="224" width="224" height="56" rx="8" fill="#faf9f6"/>
+<rect x="624" y="224" width="224" height="56" rx="8" fill="#fefefc" stroke="#ceccc6" stroke-width="1"/>
+<g transform="translate(636 236) scale(0.6666666666666666)" fill="none" stroke="#626863" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></g>
+<text x="660" y="248.5" fill="#1a201b" font-size="13" font-weight="600" font-family="'Geist', -apple-system, system-ui, sans-serif">Promemoria</text>
+<text x="636" y="267" fill="#494f4a" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">lo crea, lo sposta, lo segna fatto</text>
+</g>
+<g data-nodo="storico">
+<rect x="928" y="128" width="168" height="88" rx="8" fill="#faf9f6"/>
+<rect x="928" y="128" width="168" height="88" rx="8" fill="#fefefc" stroke="#ceccc6" stroke-width="1"/>
+<g transform="translate(940 140) scale(0.6666666666666666)" fill="none" stroke="#626863" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></g>
+<text x="964" y="152.5" fill="#1a201b" font-size="13" font-weight="600" font-family="'Geist', -apple-system, system-ui, sans-serif">Storico</text>
+<text x="940" y="171" fill="#494f4a" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">ciò che è successo</text>
+<text x="940" y="185" fill="#494f4a" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">al Contatto, in ordine</text>
+<text x="940" y="199" fill="#494f4a" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">dal più recente</text>
+</g>
+</svg>
+      </div>
+      <p class="didascalia">Un Promemoria si può segnare fatto anche direttamente dall'elenco di Da fare oggi. Nello Storico entrano da soli anche gli Invii e le Prenotazioni.</p>
+    </section>
+
+    <section class="figura">
+      <div class="figura-testa">
+        <span class="numero">3</span>
+        <div>
+          <h2>La pipeline</h2>
+          <p>I cinque Stati di un Contatto. Ogni Contatto nuovo entra in Nuovo.</p>
+        </div>
+      </div>
+      <div class="diagram-container">
+<svg viewBox="0 0 1120 284" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="flussi-pipeline-title flussi-pipeline-desc">
+<title id="flussi-pipeline-title">La pipeline: i cinque Stati</title>
+<desc id="flussi-pipeline-desc">Ogni Contatto nuovo entra in Nuovo e può passare a Contattato, In trattativa e Cliente; da qualunque Stato può finire in Perso.</desc>
+<defs>
+<marker id="flussi-pipeline-punta" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#7c827d"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#faf9f6"/>
+<path d="M 45 116 L 80 116" fill="none" stroke="#7c827d" stroke-width="1.25" marker-end="url(#flussi-pipeline-punta)"/>
+<path d="M 288 116 L 344 116" fill="none" stroke="#7c827d" stroke-width="1.25" marker-end="url(#flussi-pipeline-punta)"/>
+<path d="M 552 116 L 608 116" fill="none" stroke="#7c827d" stroke-width="1.25" marker-end="url(#flussi-pipeline-punta)"/>
+<path d="M 816 116 L 872 116" fill="none" stroke="#7c827d" stroke-width="1.25" marker-end="url(#flussi-pipeline-punta)"/>
+<path d="M 80 160 L 80 164 Q 80 168 84 168 L 812 168 Q 816 168 816 164 L 816 160" fill="none" stroke="#7c827d" stroke-width="1"/>
+<path d="M 448 168 L 448 220 Q 448 228 456 228 L 872 228" fill="none" stroke="#7c827d" stroke-width="1.25" marker-end="url(#flussi-pipeline-punta)"/>
+<rect data-maschera x="608" y="206" width="104" height="14" rx="3" fill="#faf9f6"/><text x="660" y="216" fill="#626863" font-size="10.5" font-weight="500" font-family="'Geist', -apple-system, system-ui, sans-serif" text-anchor="middle">in ogni momento</text>
+<circle cx="40" cy="116" r="5" fill="#1a201b"/>
+<g data-nodo="stato-0">
+<rect x="80" y="84" width="208" height="64" rx="8" fill="#faf9f6"/>
+<rect x="80" y="84" width="208" height="64" rx="8" fill="#ddf0ff" stroke="#288dd4" stroke-opacity="0.45" stroke-width="1"/>
+<circle cx="98" cy="108" r="4" fill="#288dd4"/>
+<text x="110" y="112.5" fill="#0b517f" font-size="13" font-weight="600" font-family="'Geist', -apple-system, system-ui, sans-serif">Nuovo</text>
+<text x="94" y="131" fill="#0b517f" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">arrivato, non ancora sentito</text>
+</g>
+<g data-nodo="stato-1">
+<rect x="344" y="84" width="208" height="64" rx="8" fill="#faf9f6"/>
+<rect x="344" y="84" width="208" height="64" rx="8" fill="#f1e8fe" stroke="#9a6ec9" stroke-opacity="0.45" stroke-width="1"/>
+<circle cx="362" cy="108" r="4" fill="#9a6ec9"/>
+<text x="374" y="112.5" fill="#5a3d78" font-size="13" font-weight="600" font-family="'Geist', -apple-system, system-ui, sans-serif">Contattato</text>
+<text x="358" y="131" fill="#5a3d78" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">risposta già data</text>
+</g>
+<g data-nodo="stato-2">
+<rect x="608" y="84" width="208" height="64" rx="8" fill="#faf9f6"/>
+<rect x="608" y="84" width="208" height="64" rx="8" fill="#fcedcd" stroke="#d79628" stroke-opacity="0.45" stroke-width="1"/>
+<circle cx="626" cy="108" r="4" fill="#d79628"/>
+<text x="638" y="112.5" fill="#72480b" font-size="13" font-weight="600" font-family="'Geist', -apple-system, system-ui, sans-serif">In trattativa</text>
+<text x="622" y="131" fill="#72480b" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">interesse concreto o proposta</text>
+</g>
+<g data-nodo="stato-3">
+<rect x="872" y="84" width="208" height="64" rx="8" fill="#faf9f6"/>
+<rect x="872" y="84" width="208" height="64" rx="8" fill="#d8f3e3" stroke="#179765" stroke-opacity="0.45" stroke-width="1"/>
+<circle cx="890" cy="108" r="4" fill="#179765"/>
+<text x="902" y="112.5" fill="#0c4f33" font-size="13" font-weight="600" font-family="'Geist', -apple-system, system-ui, sans-serif">Cliente</text>
+<text x="886" y="131" fill="#0c4f33" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">ha comprato</text>
+</g>
+<g data-nodo="stato-4">
+<rect x="872" y="196" width="208" height="64" rx="8" fill="#faf9f6"/>
+<rect x="872" y="196" width="208" height="64" rx="8" fill="#e9e8e4" stroke="#9a9891" stroke-opacity="0.45" stroke-width="1"/>
+<circle cx="890" cy="220" r="4" fill="#9a9891"/>
+<text x="902" y="224.5" fill="#4f4d47" font-size="13" font-weight="600" font-family="'Geist', -apple-system, system-ui, sans-serif">Perso</text>
+<text x="886" y="243" fill="#4f4d47" font-size="11" font-weight="400" font-family="'Geist', -apple-system, system-ui, sans-serif">non interessato o sparito</text>
+</g>
+</svg>
+      </div>
+      <p class="didascalia">Il passaggio è libero: dalla scheda, con un clic, da qualunque Stato a qualunque altro, e ogni cambio resta nello Storico. Un nuovo Invio non cambia lo Stato: riporta il Contatto tra i nuovi arrivi.</p>
+    </section>
+    <footer class="piede">
+      <span>Aspetto da src/ui/stile.css</span>
+      <span>7 ott 2026</span>
+    </footer>
+  </div>
+</body>
+</html>

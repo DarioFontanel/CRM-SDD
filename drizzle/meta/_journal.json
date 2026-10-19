@@ -1,0 +1,55 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1791115503165,
+      "tag": "0000_contatti",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1791115652469,
+      "tag": "0001_cambi_di_stato",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1791115747381,
+      "tag": "0002_note_e_promemoria",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1791115923366,
+      "tag": "0003_invii",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1791116011204,
+      "tag": "0004_scarichi",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1791116107038,
+      "tag": "0005_scartati",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1791116358095,
+      "tag": "0006_prenotazioni",
+      "breakpoints": true
+    }
+  ]
+}

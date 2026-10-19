@@ -1,0 +1,53 @@
+{
+  "_nota": "Dati finti. Struttura confermata il 2026-10-04 su risposte vere di GET /v2/bookings (cal-api-version 2024-08-13), con una prenotazione di prova fatta, spostata e annullata: lo spostamento crea una prenotazione nuova con rescheduledFromUid, mentre la vecchia diventa \"cancelled\" con rescheduledToUid; un annullamento ha status \"cancelled\" e cancellationReason (vuoto se senza motivo). Le risposte vere hanno altri campi che il CRM non usa (hosts, meetingUrl, location, icsUid...). Gli identificativi delle domande dipendono dall'etichetta scelta su Cal.com (dal vero: \"Azienda\", \"Telefono\", \"Come-ci-hai-conosciuto\"): il CRM li riconosce senza badare a maiuscole e separatori.",
+  "status": "success",
+  "data": [
+    {
+      "id": 1001,
+      "uid": "uid-originale",
+      "title": "Call conoscitiva con Elena Conti",
+      "status": "accepted",
+      "start": "2026-10-07T09:30:00.000Z",
+      "end": "2026-10-07T10:00:00.000Z",
+      "duration": 30,
+      "eventTypeId": 55,
+      "eventType": {
+        "id": 55,
+        "slug": "call"
+      },
+      "createdAt": "2026-10-04T06:12:00.000Z",
+      "updatedAt": "2026-10-04T06:12:00.000Z",
+      "cancellationReason": null,
+      "reschedulingReason": null,
+      "rescheduledFromUid": null,
+      "rescheduledToUid": null,
+      "attendees": [
+        {
+          "name": "Elena Conti",
+          "email": "Elena@ContiArchitetti.example",
+          "timeZone": "Europe/Rome",
+          "language": "it",
+          "absent": false
+        }
+      ],
+      "bookingFieldsResponses": {
+        "name": "Elena Conti",
+        "email": "Elena@ContiArchitetti.example",
+        "azienda": "Conti Architetti",
+        "telefono": "02 555 0111",
+        "come_mi_hai_conosciuto": "Google",
+        "notes": "Vorrei capire da dove partire."
+      }
+    }
+  ],
+  "pagination": {
+    "totalItems": 1,
+    "remainingItems": 0,
+    "returnedItems": 1,
+    "itemsPerPage": 100,
+    "currentPage": 1,
+    "totalPages": 1,
+    "hasNextPage": false,
+    "hasPreviousPage": false
+  }
+}

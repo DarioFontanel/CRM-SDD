@@ -1,0 +1,12 @@
+# Dati dei Contatti e segreti: mai in git
+data/
+.env
+
+node_modules/
+dist/
+.DS_Store
+.claude/
+
+# Artefatti di lavoro locali
+tmp/
+.netlify/
